@@ -82,12 +82,14 @@ private val DarkColors = darkColorScheme(
 
 @Composable
 fun ReaderComposeUITheme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
+   // darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
-    dynamicColor: Boolean = true,
+   // dynamicColor: Boolean = true,
     content: @Composable () -> Unit
 ) {
-   val colorScheme = when {
+   val colorScheme = LightColors
+
+ /*      when {
       dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
          val context = LocalContext.current
          if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
@@ -103,7 +105,7 @@ fun ReaderComposeUITheme(
          window.statusBarColor = colorScheme.primary.toArgb()
          WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = darkTheme
       }
-   }
+   }*/
 
    MaterialTheme(
        colorScheme = colorScheme,

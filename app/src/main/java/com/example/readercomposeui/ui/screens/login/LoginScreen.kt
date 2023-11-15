@@ -37,6 +37,7 @@ import androidx.navigation.NavController
 import com.example.readercomposeui.ui.components.EmailInput
 import com.example.readercomposeui.ui.components.PasswordInput
 import com.example.readercomposeui.ui.components.ReaderLogoText
+import com.example.readercomposeui.ui.navigation.ReaderScreens
 import com.example.readercomposeui.ui.theme.md_theme_dark_error
 
 /**
@@ -45,7 +46,10 @@ import com.example.readercomposeui.ui.theme.md_theme_dark_error
  */
 
 @Composable
-fun LoginScreen(navController: NavController) {
+fun LoginScreen(
+    navController: NavController,
+    viewModel: LoginViewModel = androidx.lifecycle.viewmodel.compose.viewModel()
+) {
 
    val showLoginForm = rememberSaveable() { mutableStateOf(true) }
 
@@ -65,7 +69,13 @@ fun LoginScreen(navController: NavController) {
                 loading = false,
                 isCreateAccount = false,
                 onDone = { email, password ->
-                   //todo input fb login
+                   viewModel.signInWithEmailAndPassword(
+                       email = email,
+                       password = password,
+                       home = {
+                          navController.navigate(route = ReaderScreens.ReaderHomeScreen.name)
+                       }
+                   )
                 }
             )
          } else {
@@ -73,7 +83,13 @@ fun LoginScreen(navController: NavController) {
                 loading = false,
                 isCreateAccount = true,
                 onDone = { email, password ->
-                   //todo create fb account
+                   viewModel.createUserWithEmailAndPassword(
+                       email = email,
+                       password = password,
+                       home = {
+                          navController.navigate(route = ReaderScreens.ReaderHomeScreen.name)
+                       }
+                   )
 
                 }
             )

@@ -32,6 +32,7 @@ import com.example.readercomposeui.ui.navigation.ReaderScreens
 import com.example.readercomposeui.ui.theme.ReaderComposeUITheme
 import com.example.readercomposeui.ui.theme.md_theme_light_shadow
 import com.example.readercomposeui.ui.theme.seed
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.delay
 
 /**
@@ -52,6 +53,13 @@ fun ReaderSplash(navController: NavController) {
               easing = { OvershootInterpolator(3.1f).getInterpolation(it) }),
       )
       delay(2000L)
+
+//      if(FirebaseAuth.getInstance().currentUser?.email.isNullOrEmpty()){
+//         navController.navigate(route = ReaderScreens.LoginScreen.name)
+//      }else{
+//         navController.navigate(route = ReaderScreens.ReaderHomeScreen.name)
+//      }
+
       navController.navigate(route = ReaderScreens.LoginScreen.name)
    }
 

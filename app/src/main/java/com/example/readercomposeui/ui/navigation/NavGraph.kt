@@ -7,6 +7,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.readercomposeui.ui.screens.home.HomeScreen
 import com.example.readercomposeui.ui.screens.login.LoginScreen
 import com.example.readercomposeui.ui.screens.splash.ReaderSplash
+import com.example.readercomposeui.ui.screens.stats.StatsScreen
 
 /**
  * @author : Mingaleev D
@@ -25,6 +26,9 @@ fun NavGraph() {
       }
       composable(route = ReaderScreens.ReaderHomeScreen.name) {
          HomeScreen(navController = navController)
+      }
+      composable(route = ReaderScreens.StatsScreen.name) {
+         StatsScreen(navController = navController)
       }
    }
 

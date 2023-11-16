@@ -1,6 +1,8 @@
 package com.example.readercomposeui.ui.screens.stats
 
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.navigation.NavController
 
 /**
  * @author : Mingaleev D
@@ -8,6 +10,7 @@ import androidx.compose.runtime.Composable
  */
 
 @Composable
-fun StatsScreen() {
+fun StatsScreen(navController: NavController) {
 
+   Text(text = "StatsScreen")
 }

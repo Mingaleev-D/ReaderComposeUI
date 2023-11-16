@@ -60,7 +60,7 @@ fun ReaderSplash(navController: NavController) {
 //         navController.navigate(route = ReaderScreens.ReaderHomeScreen.name)
 //      }
 
-      navController.navigate(route = ReaderScreens.LoginScreen.name)
+      navController.navigate(route = ReaderScreens.ReaderHomeScreen.name)
    }
 
    Surface(
@@ -83,7 +83,7 @@ fun ReaderSplash(navController: NavController) {
 
          Spacer(modifier = Modifier.size(15.dp))
          Text(
-             text = "Читай. Измени себя",
+             text = "Читай. Измени себя \uD83D\uDE09",
              style = MaterialTheme.typography.headlineSmall.copy(
                  fontWeight = FontWeight.Bold,
                  color = md_theme_light_shadow,
